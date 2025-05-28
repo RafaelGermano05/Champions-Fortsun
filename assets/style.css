@@ -1,0 +1,238 @@
+:root {
+    --gold: #FFD700;
+    --dark-gold: #C9B037;
+    --black: #121212;
+    --dark-gray: #1E1E1E;
+    --light-gray: #2D2D2D;
+    --white: #FFFFFF;
+    --green: #4CAF50;
+    --red: #F44336;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.champions-background {
+    background: url('_SUPER\ CHAMPIONS\ 25\ CONSULTORES\ \(1\).png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+.champions-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.273);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 2px solid var(--gold);
+}
+
+.header .trophy {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+.countdown {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 5px;
+}
+
+.countdown h3 {
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+#timer {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.standings-container {
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+.table-header {
+    display: flex;
+    padding: 1rem;
+    background: linear-gradient(to right, var(--black), var(--dark-gold), var(--black));
+    color: var(--white);
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-header .pos {
+    width: 5%;
+    text-align: center;
+}
+
+.table-header .team {
+    width: 55%;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.table-header .stats {
+    width: 10%;
+    text-align: center;
+}
+
+.standings {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-row {
+    display: flex;
+    padding: 0.8rem 1rem;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.team-row:hover {
+    background: rgba(255, 215, 0, 0.05);
+}
+
+.team-row .pos {
+    width: 5%;
+    text-align: center;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.team-row .team {
+    width: 55%;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.team-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+    background-color: var(--light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--gold);
+}
+
+.team-name {
+    font-weight: 500;
+}
+
+.team-row .stats {
+    width: 10%;
+    text-align: center;
+}
+
+.points {
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.wins {
+    color: var(--green);
+}
+
+.draws {
+    color: var(--white);
+}
+
+.losses {
+    color: var(--red);
+}
+
+.percentage {
+    color: var(--gold);
+}
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: var(--white);
+    border-top: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .table-header .team {
+        width: 45%;
+    }
+    
+    .table-header .stats {
+        width: 11.25%;
+        font-size: 0.8rem;
+    }
+    
+    .team-row .team {
+        width: 45%;
+    }
+    
+    .team-row .stats {
+        width: 11.25%;
+        font-size: 0.8rem;
+    }
+}
