@@ -70,25 +70,25 @@ function updateLastUpdated() {
     document.getElementById('update-date').textContent = formattedDate;
 }
 
-// Função para carregar dados de exemplo (caso a API falhe)
+// função para carregar dados de exemplo (caso a API falhe)
 function loadSampleData() {
     const sampleData = [
-        { Nome: "Time Aldenir", Sigla: "T1", PTS: 72, J: 30, V: 22, E: 6, D: 2 },
-        { Nome: "Time Rozelia", Sigla: "TR", PTS: 68, J: 30, V: 20, E: 8, D: 2 },
-        { Nome: "Time Aline", Sigla: "TAL", PTS: 65, J: 30, V: 19, E: 8, D: 3 },
-        { Nome: "Time Thiago", Sigla: "TT", PTS: 60, J: 30, V: 17, E: 9, D: 4 },
-        { Nome: "Time Kesse", Sigla: "TK", PTS: 55, J: 30, V: 15, E: 10, D: 5 },
-        { Nome: "Time Brito", Sigla: "TB", PTS: 50, J: 30, V: 14, E: 8, D: 8 },
-        { Nome: "Time Guilherme", Sigla: "TG", PTS: 48, J: 30, V: 13, E: 9, D: 8 },
-        { Nome: "Time Anita", Sigla: "TA", PTS: 45, J: 30, V: 12, E: 9, D: 9 },
-        { Nome: "Time Lavor", Sigla: "TLA", PTS: 42, J: 30, V: 11, E: 9, D: 10 },
-        { Nome: "Time Douglas", Sigla: "TD", PTS: 40, J: 30, V: 10, E: 10, D: 10 },
-        { Nome: "Time Serrão", Sigla: "TS", PTS: 38, J: 30, V: 9, E: 11, D: 10 },
-        { Nome: "Time Berg", Sigla: "TB", PTS: 35, J: 30, V: 9, E: 8, D: 13 },
-        { Nome: "Time Gabriel", Sigla: "TG", PTS: 32, J: 30, V: 8, E: 8, D: 14 },
-        { Nome: "Time Linaldo", Sigla: "TL", PTS: 30, J: 30, V: 7, E: 9, D: 14 },
-        { Nome: "Time Flaira", Sigla: "TF", PTS: 28, J: 30, V: 6, E: 10, D: 14 },
-        { Nome: "Time X", Sigla: "TX", PTS: 25, J: 30, V: 5, E: 10, D: 15 },
+        { Nome: "Time Aldenir", Sigla: "T1", PTS: 0, J: 30, V: 22, E: 6, D: 2 },
+        { Nome: "Time Rozelia", Sigla: "TR", PTS: 0, J: 30, V: 20, E: 8, D: 2 },
+        { Nome: "Time Aline", Sigla: "TAL", PTS: 0, J: 30, V: 19, E: 8, D: 3 },
+        { Nome: "Time Thiago", Sigla: "TT", PTS: 0, J: 30, V: 17, E: 9, D: 4 },
+        { Nome: "Time Kesse", Sigla: "TK", PTS: 0, J: 30, V: 15, E: 10, D: 5 },
+        { Nome: "Time Brito", Sigla: "TB", PTS: 0, J: 30, V: 14, E: 8, D: 8 },
+        { Nome: "Time Guilherme", Sigla: "TG", PTS: 0, J: 30, V: 13, E: 9, D: 8 },
+        { Nome: "Time Anita", Sigla: "TA", PTS: 0, J: 30, V: 12, E: 9, D: 9 },
+        { Nome: "Time Lavor", Sigla: "TLA", PTS: 0, J: 30, V: 11, E: 9, D: 10 },
+        { Nome: "Time Douglas", Sigla: "TD", PTS: 0, J: 30, V: 10, E: 10, D: 10 },
+        { Nome: "Time Serrão", Sigla: "TS", PTS: 0, J: 30, V: 9, E: 11, D: 10 },
+        { Nome: "Time Berg", Sigla: "TB", PTS: 0, J: 30, V: 9, E: 8, D: 13 },
+        { Nome: "Time Gabriel", Sigla: "TG", PTS: 0, J: 30, V: 8, E: 8, D: 14 },
+        { Nome: "Time Linaldo", Sigla: "TL", PTS: 0, J: 30, V: 7, E: 9, D: 14 },
+        { Nome: "Time Flaira", Sigla: "TF", PTS: 0, J: 30, V: 6, E: 10, D: 14 },
+        { Nome: "Time X", Sigla: "TX", PTS: 25, J: 0, V: 5, E: 10, D: 15 },
         { Nome: "Time Vitoria", Sigla: "TV", PTS: 22, J: 30, V: 5, E: 7, D: 18 },
         { Nome: "Time Sarah", Sigla: "TS", PTS: 20, J: 30, V: 4, E: 8, D: 18 }
     ];
@@ -115,7 +115,7 @@ function updateCountdown() {
     document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
 }
 
-// Inicialização
+// inicialização
 document.addEventListener('DOMContentLoaded', () => {
     fetchData();
     updateCountdown();
