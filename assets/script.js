@@ -1,5 +1,5 @@
 
-const SHEET_NAME = 'Classificação'; // Nome da aba da planilha
+const SHEET_NAME = 'Classificação'; 
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby0Moqf4MNfeWtD-CxxvTQdlumBS3D-xfc_7q9Rn8rpv_5ly9AoKg3ZB5H975mRtCHYvg/exec'; 
 
 
