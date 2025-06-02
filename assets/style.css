@@ -22,7 +22,7 @@ body {
 }
 
 .champions-background {
-    background: url('_SUPER\ CHAMPIONS\ 25\ CONSULTORES\ \(1\).png') no-repeat center center fixed;
+    background: url('assets/_SUPER\ CHAMPIONS\ 25\ CONSULTORES\ \(1\).png') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     position: relative;
@@ -158,14 +158,24 @@ body {
 }
 
 .team-logo {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     margin-right: 1rem;
-    background-color: var(--light-gray);
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* background-color: var(--light-gray); */
+}
+
+.team-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.default-logo {
     font-size: 0.8rem;
     color: var(--gold);
 }
@@ -234,5 +244,10 @@ body {
     .team-row .stats {
         width: 11.25%;
         font-size: 0.8rem;
+    }
+    
+    .team-logo {
+        width: 30px;
+        height: 30px;
     }
 }
