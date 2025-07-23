@@ -96,7 +96,7 @@ function updateStandings(data) {
             <div class="stats wins">${team.V}</div>
             <div class="stats draws">${team.E}</div>
             <div class="stats losses">${team.D}</div>
-            <div class="stats percentage">${percentage}%</div>
+            <div class="stats percentage">${team.J}</div>
         `;
         
         standingsContainer.appendChild(teamRow);
