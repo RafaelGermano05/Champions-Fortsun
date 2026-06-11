@@ -7,6 +7,12 @@
     --white: #FFFFFF;
     --green: #4CAF50;
     --red: #F44336;
+
+    /* Novas variáveis do tema World Cup / Champions verde */
+    --pitch-deep: #0B3D1E;
+    --pitch-mid: #145C32;
+    --pitch-glow: #1F8B4C;
+    --field-line: rgba(255, 255, 255, 0.08);
 }
 
 * {
@@ -17,15 +23,43 @@
 }
 
 body {
-    background-color: var(--black);
+    background-color: var(--pitch-deep);
     color: var(--white);
 }
 
+/* ===== BACKGROUND TEMA WORLD CUP ===== */
 .champions-background {
-    background: url('assets/_SUPER\ CHAMPIONS\ 25\ CONSULTORES\ \(1\).png') no-repeat center center fixed;
+    background:
+        radial-gradient(ellipse at 70% 30%, rgba(31, 139, 76, 0.55) 0%, transparent 55%),
+        linear-gradient(135deg, var(--pitch-deep) 0%, var(--pitch-mid) 55%, var(--pitch-deep) 100%);
     background-size: cover;
     min-height: 100vh;
     position: relative;
+    overflow: hidden;
+}
+
+/* Estrela animada estilo Champions, atrás do conteúdo */
+.champions-background::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 70vw;
+    height: 70vw;
+    max-width: 900px;
+    max-height: 900px;
+    background:
+        conic-gradient(from 0deg, transparent 0deg, rgba(150, 255, 190, 0.18) 90deg, transparent 180deg, rgba(150, 255, 190, 0.12) 270deg, transparent 360deg);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    filter: blur(2px);
+    z-index: 0;
+    animation: spin-slow 60s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .champions-background::before {
@@ -35,7 +69,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.273);
+    background:
+        repeating-linear-gradient(45deg, var(--field-line) 0px, var(--field-line) 1px, transparent 1px, transparent 60px),
+        rgba(0, 0, 0, 0.35);
     z-index: 0;
 }
 
@@ -47,17 +83,33 @@ body {
     padding: 2rem;
 }
 
+/* ===== HEADER ===== */
 .header {
     text-align: center;
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 1.5rem 1rem 2rem;
     border-bottom: 2px solid var(--gold);
+    position: relative;
+    animation: fade-down 0.8s ease-out;
+}
+
+@keyframes fade-down {
+    from { opacity: 0; transform: translateY(-24px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .header .trophy {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--gold);
     margin-bottom: 1rem;
+    display: inline-block;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    animation: trophy-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes trophy-glow {
+    0%, 100% { text-shadow: 0 0 12px rgba(255, 215, 0, 0.45); transform: scale(1); }
+    50% { text-shadow: 0 0 28px rgba(255, 215, 0, 0.85); transform: scale(1.06); }
 }
 
 .header h1 {
@@ -66,48 +118,96 @@ body {
     text-transform: uppercase;
     letter-spacing: 3px;
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 18px rgba(255, 215, 0, 0.35);
 }
 
 .header p {
     font-size: 1.2rem;
     color: var(--white);
     letter-spacing: 1px;
+    opacity: 0.85;
 }
 
+/* Marcadores estilo "World Cup" - linha de pontos dourados decorativa */
+.header::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 6px;
+    margin-top: 1.2rem;
+    background-image: radial-gradient(circle, var(--gold) 1.5px, transparent 1.6px);
+    background-size: 14px 6px;
+    background-repeat: repeat-x;
+    background-position: center;
+    opacity: 0.5;
+}
+
+/* ===== COUNTDOWN ===== */
 .countdown {
     text-align: center;
     margin-bottom: 2rem;
-    padding: 1rem;
-    background: rgba(30, 30, 30, 0.7);
-    border-radius: 5px;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, rgba(20, 92, 50, 0.55), rgba(18, 18, 18, 0.65));
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    animation: fade-down 0.8s ease-out 0.1s both;
 }
 
 .countdown h3 {
     color: var(--gold);
     margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.95rem;
 }
 
 #timer {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: bold;
     color: var(--gold);
+    letter-spacing: 4px;
+    text-shadow: 0 0 14px rgba(255, 215, 0, 0.4);
 }
 
+#timer span {
+    display: inline-block;
+    min-width: 2.4rem;
+    animation: pulse-digit 1s ease-in-out infinite;
+}
+
+@keyframes pulse-digit {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* ===== STANDINGS TABLE ===== */
 .standings-container {
-    background: rgba(30, 30, 30, 0.8);
-    border-radius: 8px;
+    background: rgba(11, 61, 30, 0.55);
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 0 30px rgba(31, 139, 76, 0.35), 0 0 20px rgba(255, 215, 0, 0.1);
     margin-bottom: 2rem;
+    backdrop-filter: blur(6px);
+    animation: fade-up 0.8s ease-out 0.2s both;
+}
+
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .table-header {
     display: flex;
     padding: 1rem;
-    background: linear-gradient(to right, var(--black), var(--dark-gold), var(--black));
-    color: var(--white);
+    background: linear-gradient(to right, var(--pitch-deep), var(--dark-gold), var(--pitch-deep));
+    color: var(--black);
     font-weight: bold;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
 }
 
 .table-header .pos {
@@ -135,12 +235,42 @@ body {
     display: flex;
     padding: 0.8rem 1rem;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.08);
     transition: all 0.3s ease;
+    opacity: 0;
+    animation: row-in 0.5s ease-out forwards;
 }
 
+@keyframes row-in {
+    from { opacity: 0; transform: translateX(-12px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Atraso escalonado para até 20 linhas */
+.team-row:nth-child(1) { animation-delay: 0.05s; }
+.team-row:nth-child(2) { animation-delay: 0.10s; }
+.team-row:nth-child(3) { animation-delay: 0.15s; }
+.team-row:nth-child(4) { animation-delay: 0.20s; }
+.team-row:nth-child(5) { animation-delay: 0.25s; }
+.team-row:nth-child(6) { animation-delay: 0.30s; }
+.team-row:nth-child(7) { animation-delay: 0.35s; }
+.team-row:nth-child(8) { animation-delay: 0.40s; }
+.team-row:nth-child(9) { animation-delay: 0.45s; }
+.team-row:nth-child(10) { animation-delay: 0.50s; }
+.team-row:nth-child(11) { animation-delay: 0.55s; }
+.team-row:nth-child(12) { animation-delay: 0.60s; }
+.team-row:nth-child(13) { animation-delay: 0.65s; }
+.team-row:nth-child(14) { animation-delay: 0.70s; }
+.team-row:nth-child(15) { animation-delay: 0.75s; }
+.team-row:nth-child(16) { animation-delay: 0.80s; }
+.team-row:nth-child(17) { animation-delay: 0.85s; }
+.team-row:nth-child(18) { animation-delay: 0.90s; }
+.team-row:nth-child(19) { animation-delay: 0.95s; }
+.team-row:nth-child(20) { animation-delay: 1.00s; }
+
 .team-row:hover {
-    background: rgba(255, 215, 0, 0.05);
+    background: rgba(255, 215, 0, 0.06);
+    transform: scale(1.01);
 }
 
 .team-row .pos {
@@ -161,12 +291,10 @@ body {
     width: 40px;
     height: 40px;
     margin-right: 1rem;
-    /* border-radius: 50%; */
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: var(--light-gray); */
 }
 
 .team-logo img {
@@ -210,12 +338,14 @@ body {
     color: var(--gold);
 }
 
+/* ===== FOOTER ===== */
 .footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
     color: var(--white);
     border-top: 1px solid rgba(255, 215, 0, 0.3);
+    opacity: 0.85;
 }
 
 .footer p {
@@ -227,27 +357,37 @@ body {
     .container {
         padding: 1rem;
     }
-    
+
+    .header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+
     .table-header .team {
         width: 45%;
     }
-    
+
     .table-header .stats {
         width: 11.25%;
         font-size: 0.8rem;
     }
-    
+
     .team-row .team {
         width: 45%;
     }
-    
+
     .team-row .stats {
         width: 11.25%;
         font-size: 0.8rem;
     }
-    
+
     .team-logo {
         width: 30px;
         height: 30px;
+    }
+
+    .champions-background::after {
+        width: 100vw;
+        height: 100vw;
     }
 }
