@@ -4,51 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#061922">
-    <title>Super Champions 26' - Copa do Mundo Comercial</title>
+    <title>Nos vemos na final — Super Champions 26'</title>
     <link rel="shortcut icon" href="assets/WhatsApp Image 2025-05-28 at 14.06.23.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/final-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <main class="champions-background">
-        <div class="container">
-            <header class="header">
-                <div class="trophy" aria-hidden="true">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <h1>
-                    <span>Super Champions 26'</span>
-                    <strong>Copa do Mundo</strong>
-                </h1>
-                <p>Liga de Vendas 2026</p>
-            </header>
+    <main class="finale-background">
+        <div class="spotlight" aria-hidden="true"></div>
+        <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
 
-            <section class="countdown" aria-live="polite">
-                <h3>Próxima atualização em:</h3>
-                <div id="timer">
-                    <span id="hours">24</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-                </div>
-            </section>
+        <section class="finale-container" role="status" aria-live="polite">
+            <span class="finale-badge">Super Champions 26' · Copa do Mundo Comercial</span>
 
-            <section class="standings-container" aria-label="Classificação da liga de vendas">
-                <div class="table-header">
-                    <div class="pos">#</div>
-                    <div class="team">Time</div>
-                    <div class="stats">PTS</div>
-                    <div class="stats">V</div>
-                    <div class="stats">E</div>
-                    <div class="stats">D</div>
-                    <div class="stats">J</div>
-                </div>
-                <div id="standings" class="standings"></div>
-            </section>
+            <div class="finale-trophy" aria-hidden="true">
+                <i class="fas fa-trophy"></i>
+            </div>
 
-            <footer class="footer">
-                <p>Atualizado em: <span id="update-date">--/--/----</span></p>
-                <p>Dados alimentados por Google Sheets | Desenvolvido por FORTSUNBRASIL</p>
+            <h1 class="finale-title">
+                <span class="kicker">A temporada chegou até aqui.</span>
+                <span class="headline">Nos vemos na <em>final</em></span>
+            </h1>
+
+            <p class="finale-subtitle">
+                A classificação está pausada enquanto fechamos os números da última rodada.
+                Quando o placar final sair do forno, o pódio é anunciado aqui — com todo o
+                brilho que os HUBs mereceram nessa temporada.
+            </p>
+
+            <div class="finale-status">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span id="finale-status-text">Classificação sendo apurada</span>
+            </div>
+
+            <div class="finale-countdown">
+                <h3>Contagem para a grande final</h3>
+                <div id="finale-timer">
+                    <div class="time-block">
+                        <strong id="f-days">00</strong>
+                        <span>dias</span>
+                    </div>
+                    <div class="time-block">
+                        <strong id="f-hours">00</strong>
+                        <span>horas</span>
+                    </div>
+                    <div class="time-block">
+                        <strong id="f-minutes">00</strong>
+                        <span>min</span>
+                    </div>
+                    <div class="time-block">
+                        <strong id="f-seconds">00</strong>
+                        <span>seg</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="finale-progress-wrap">
+                <div class="finale-progress-label">
+                    <span>Apuração dos resultados</span>
+                    <span id="finale-progress-percent">4%</span>
+                </div>
+                <div class="finale-progress-track">
+                    <div class="finale-progress-fill" id="finale-progress-fill"></div>
+                </div>
+            </div>
+
+            <footer class="finale-footer">
+                <p>O sistema de classificação volta assim que o pódio for confirmado.</p>
+                <p>FORTSUNBRASIL · Liga de Vendas 2026</p>
             </footer>
-        </div>
+        </section>
     </main>
-    <script src="assets/script.js"></script>
+
+    <script src="assets/final-script.js"></script>
 </body>
 </html>
