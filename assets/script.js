@@ -2,7 +2,7 @@
 // AJUSTE AQUI: data/hora oficial da Grande Final.
 // Formato: "AAAA-MM-DDTHH:MM:SS" (horário de Brasília)
 // ============================================================
-const FINAL_DATE = new Date("2026-09-11T18:00:00");
+const FINAL_DATE = new Date("2026-08-31T18:00:00");
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
